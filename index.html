@@ -8,7 +8,7 @@
   <meta name="description" content="A little birthday story for Erica.">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2310253b'/%3E%3Cpath d='M18 40h28v10H18zM22 28h20v12H22z' fill='%23fff0ce'/%3E%3Cpath d='M32 12c5 6 4 11 0 14-4-3-5-8 0-14z' fill='%23ffbc55'/%3E%3C/svg%3E">
   <link rel="preload" href="assets/park.png" as="image">
-  <link rel="stylesheet" href="styles.css?v=flipbook-2">
+  <link rel="stylesheet" href="styles.css?v=storybook-1">
 </head>
 <body>
   <main id="book" class="book" aria-live="polite">
@@ -22,12 +22,13 @@
       </div>
     </section>
 
-    <section id="walk" class="scene park-scene" aria-label="Erica takes her dog for a walk">
-      <div class="chapter-card"><span id="chapterText">Erica went out for a perfectly ordinary walk.</span></div>
-      <img class="character erica" src="assets/erica-dog.png" alt="Erica walking her dog">
-      <img class="character man" src="assets/cake-man.png" alt="A man hurrying with an enormous birthday cake">
-      <div class="impact" aria-hidden="true">!</div>
-    </section>
+    <section id="page1" class="scene story-page" aria-label="Erica and Panna go for a walk"><article class="printed-page"><img src="assets/page-1.png" alt="Erica walking Panna through the park"><div class="page-copy"><p>One evening, Erica and Panna went out for a perfectly ordinary walk.</p><button class="page-button" data-next="page2">Turn the page <span>›</span></button></div><small>1</small></article></section>
+
+    <section id="page2" class="scene story-page" aria-label="Panna notices a man carrying a cake"><article class="printed-page"><img src="assets/page-2.png" alt="Panna spots a man carrying an enormous birthday cake"><div class="page-copy"><p>But then Panna spotted something <em>very</em> interesting.</p><button class="page-button" data-next="page3">Turn the page <span>›</span></button></div><small>2</small></article></section>
+
+    <section id="page3" class="scene story-page" aria-label="Panna pulls Erica toward the cake"><article class="printed-page"><img src="assets/page-3.png" alt="Panna suddenly pulls Erica toward the cake"><div class="page-copy"><p>Before Erica could say “Panna, wait!”—<strong>PULL!</strong></p><button class="page-button" data-next="page4">Turn the page <span>›</span></button></div><small>3</small></article></section>
+
+    <section id="page4" class="scene story-page" aria-label="Erica collides with the cake carrier"><article class="printed-page"><img src="assets/page-4.png" alt="Erica bumps into the cake carrier and the cake flies through the air"><div class="page-copy"><p>And that was when the perfectly ordinary walk became rather less ordinary.</p><button class="page-button" data-next="splatScene">Oh dear… <span>›</span></button></div><small>4</small></article></section>
 
     <section id="splatScene" class="scene splat-scene" aria-label="The cake splashes across the page">
       <img class="splat" src="assets/splat.png" alt="Birthday cake frosting and sprinkles splattered across the page">
@@ -54,6 +55,6 @@
       <button id="replayButton" class="replay">Read it again</button>
     </section>
   </main>
-  <script src="script.js?v=flipbook-2"></script>
+  <script src="script.js?v=storybook-1"></script>
 </body>
 </html>

@@ -43,13 +43,17 @@ function confetti(){
   let frame=0;(function draw(){x.clearRect(0,0,innerWidth,innerHeight);p.forEach(q=>{q.y+=q.v;q.x+=Math.sin(q.a)*.7;q.a+=q.s;x.save();x.translate(q.x,q.y);x.rotate(q.a);x.fillStyle=q.c;x.fillRect(-q.r,-q.r/2,q.r*2,q.r);x.restore();if(q.y>innerHeight+20)q.y=-20});if(frame++<720)requestAnimationFrame(draw)})();
 }
 document.querySelector('#startButton').addEventListener('click',()=>{
-  if(started)return;started=true;audioCtx=new(window.AudioContext||window.webkitAudioContext)();pageSound();show('walk');
-  const walk=document.querySelector('#walk');requestAnimationFrame(()=>walk.classList.add('playing'));
-  setTimeout(()=>{document.querySelector('#chapterText').textContent='Then Panna spotted something very interesting…';pageSound()},4300);
-  setTimeout(()=>{document.querySelector('#chapterText').textContent='And suddenly—PULL!';crashSound()},6400);
-  setTimeout(()=>{walk.classList.add('crash');crashSound()},8200);
-  setTimeout(()=>{show('splatScene');crashSound()},8950);
-  setTimeout(()=>{makeFlames();show('cakeScene');pageSound();beginMic()},11650);
+  if(started)return;started=true;audioCtx=new(window.AudioContext||window.webkitAudioContext)();pageSound();show('page1');
 });
+document.querySelectorAll('.page-button').forEach(button=>button.addEventListener('click',()=>{
+  const current=button.closest('.story-page');current.classList.add('turning');pageSound();
+  setTimeout(()=>{
+    current.classList.remove('turning');show(button.dataset.next);
+    if(button.dataset.next==='splatScene'){
+      crashSound();
+      setTimeout(()=>{makeFlames();show('cakeScene');pageSound();beginMic()},2400);
+    }
+  },620);
+}));
 document.querySelector('#blowButton').addEventListener('click',extinguish);
 document.querySelector('#replayButton').addEventListener('click',()=>location.reload());

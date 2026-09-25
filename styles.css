@@ -15,6 +15,20 @@ button{font:inherit}
 h1{font-size:clamp(3rem,9vw,7rem);line-height:.92;max-width:900px;margin:.2em auto .5em;text-shadow:0 4px 24px #0008;font-weight:500}
 .storybook-button{appearance:none;border:1px solid #f8ddb0;background:#fff2d4;color:var(--ink);border-radius:999px;padding:.9rem 1.5rem;min-height:48px;box-shadow:0 8px 28px #0005;cursor:pointer;transition:transform .2s,box-shadow .2s}
 .storybook-button:hover,.storybook-button:focus-visible{transform:translateY(-2px);box-shadow:0 12px 34px #0006;outline:3px solid #f5b94c;outline-offset:4px}
+.story-page{background:#192b35;padding:clamp(.65rem,2.5vw,2rem);perspective:1800px}
+.story-page:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 35%,#59695455,transparent 58%),linear-gradient(135deg,#0d1b22,#253d43);z-index:-1}
+.printed-page{position:relative;width:min(1120px,96vw);height:min(92vh,820px);display:grid;grid-template-rows:minmax(0,1fr) auto;background:#f2e4c1;color:#2f2a22;padding:clamp(.6rem,1.5vw,1.1rem);border-radius:3px;box-shadow:0 28px 70px #0009,0 0 0 1px #6a5133;transform-origin:left center;overflow:hidden}
+.story-page.active .printed-page{animation:pageOpen .85s cubic-bezier(.2,.8,.2,1) both}
+.story-page.turning .printed-page{animation:pageTurn .72s cubic-bezier(.55,.05,.7,.5) both}
+.printed-page:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.17;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='p'%3E%3CfeTurbulence baseFrequency='.7' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='.36'/%3E%3C/svg%3E")}
+.printed-page>img{width:100%;height:100%;min-height:0;object-fit:contain;background:#e9d7af;border:1px solid #937958}
+.page-copy{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem;align-items:center;padding:clamp(.85rem,2vw,1.4rem) clamp(.75rem,2.5vw,2rem) .45rem}
+.page-copy p{margin:0;font-size:clamp(1.15rem,2.4vw,1.75rem);line-height:1.4;text-align:center;font-style:italic}
+.page-button{position:relative;z-index:2;border:0;background:transparent;color:#51432e;font-size:1rem;white-space:nowrap;padding:.75rem;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.page-button span{font-size:1.6em;vertical-align:-.08em}.page-button:focus-visible{outline:2px solid #51432e;outline-offset:2px;border-radius:4px}
+.printed-page small{position:absolute;right:1rem;bottom:.35rem;color:#7b6a4e;font-size:.8rem}
+@keyframes pageOpen{from{opacity:0;transform:rotateY(-48deg) translateX(-8%);filter:brightness(.7)}to{opacity:1;transform:none;filter:none}}
+@keyframes pageTurn{to{opacity:0;transform:rotateY(-82deg) translateX(-12%);filter:brightness(.65)}}
 .park-scene{background:url('assets/park.png') center/cover no-repeat}
 .park-scene:before{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0;background:linear-gradient(90deg,rgba(255,245,214,.12),transparent 12%,transparent 88%,rgba(8,20,32,.16));mix-blend-mode:soft-light}
 .park-scene.playing:before{animation:pageFlicker 9s steps(18,end) forwards}
@@ -61,6 +75,7 @@ h1{font-size:clamp(3rem,9vw,7rem);line-height:.92;max-width:900px;margin:.2em au
 @keyframes flicker{to{transform:scaleX(.8) skewX(7deg) rotate(3deg)}}
 @keyframes out{0%{opacity:1}55%{transform:scale(.3) translateY(-12px);opacity:.7}100%{transform:scale(.1) translateY(-26px);opacity:0}}
 @media(max-width:700px){
+  .story-page{padding:.45rem}.printed-page{height:94vh;height:94dvh;grid-template-rows:minmax(0,1fr) auto;padding:.5rem}.printed-page>img{object-fit:contain}.page-copy{grid-template-columns:1fr;padding:.75rem .6rem .4rem;gap:.15rem}.page-copy p{font-size:1.05rem}.page-button{justify-self:end;padding:.35rem .5rem}
   .character.erica{width:76vw}.character.man{width:66vw}
   @keyframes walkIn{0%{left:-85vw;transform:translateY(0) rotate(-1deg)}10%{transform:translateY(-5px) rotate(1deg)}20%{transform:translateY(1px) rotate(-1deg)}30%{transform:translateY(-5px) rotate(1deg)}40%{transform:translateY(1px) rotate(-1deg)}50%{transform:translateY(-5px) rotate(1deg)}60%{left:-25%;transform:translateY(1px) rotate(-1deg)}68%{left:-18%;transform:translate(10px,-7px) rotate(2deg)}73%{left:-14%;transform:translate(1px,1px) rotate(-1deg)}80%{left:-2%;transform:translate(22px,-9px) rotate(3deg)}88%,100%{left:5%;transform:translateY(0) rotate(0)}}
   @keyframes manIn{0%{right:-75vw;transform:translateY(0) rotate(1deg)}10%{transform:translateY(-7px) rotate(-1deg)}20%{transform:translateY(1px) rotate(1deg)}30%{transform:translateY(-7px) rotate(-1deg)}40%{transform:translateY(1px) rotate(1deg)}50%{transform:translateY(-7px) rotate(-1deg)}60%{transform:translateY(1px) rotate(1deg)}70%{transform:translateY(-7px) rotate(-1deg)}88%,100%{right:1%;transform:translateY(0) rotate(0)}}
