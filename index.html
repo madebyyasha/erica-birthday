@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#10253b">
+  <title>Erica’s Birthday Story</title>
+  <meta name="description" content="A little birthday story for Erica.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2310253b'/%3E%3Cpath d='M18 40h28v10H18zM22 28h20v12H22z' fill='%23fff0ce'/%3E%3Cpath d='M32 12c5 6 4 11 0 14-4-3-5-8 0-14z' fill='%23ffbc55'/%3E%3C/svg%3E">
+  <link rel="preload" href="assets/park.png" as="image">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="book" class="book" aria-live="polite">
+    <div class="paper-grain" aria-hidden="true"></div>
+
+    <section id="cover" class="scene cover active">
+      <div class="cover-card">
+        <p class="eyebrow">Once upon a birthday…</p>
+        <h1>A rather eventful walk</h1>
+        <button id="startButton" class="storybook-button">Turn the page</button>
+      </div>
+    </section>
+
+    <section id="walk" class="scene park-scene" aria-label="Erica takes her dog for a walk">
+      <div class="chapter-card"><span>Erica went out for a perfectly ordinary walk.</span></div>
+      <img class="character erica" src="assets/erica-dog.png" alt="Erica walking her dog">
+      <img class="character man" src="assets/cake-man.png" alt="A man hurrying with an enormous birthday cake">
+      <div class="impact" aria-hidden="true">!</div>
+    </section>
+
+    <section id="splatScene" class="scene splat-scene" aria-label="The cake splashes across the page">
+      <img class="splat" src="assets/splat.png" alt="Birthday cake frosting and sprinkles splattered across the page">
+      <p class="splat-word" aria-hidden="true">SPLAT!</p>
+    </section>
+
+    <section id="cakeScene" class="scene cake-scene" aria-label="A fresh birthday cake appears">
+      <p class="final-kicker">Fortunately, there was another cake.</p>
+      <div id="cakeWrap" class="cake-wrap">
+        <img class="fresh-cake" src="assets/cake.png" alt="A fresh three-tier birthday cake">
+        <div id="flames" class="flames" aria-hidden="true"></div>
+      </div>
+      <p id="blowPrompt" class="blow-prompt">Make a wish, then blow out the candles</p>
+      <button id="blowButton" class="storybook-button blow-button">Blow out the candles</button>
+    </section>
+
+    <section id="finale" class="scene finale" aria-label="Happy Birthday Erica">
+      <canvas id="confetti" aria-hidden="true"></canvas>
+      <div class="final-copy">
+        <p>And after all that…</p>
+        <h2>Happy Birthday,<br><span>Erica!</span></h2>
+      </div>
+      <img class="final-cake" src="assets/cake.png" alt="Erica's birthday cake">
+      <button id="replayButton" class="replay">Read it again</button>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
