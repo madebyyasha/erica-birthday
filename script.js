@@ -45,9 +45,11 @@ function confetti(){
 document.querySelector('#startButton').addEventListener('click',()=>{
   if(started)return;started=true;audioCtx=new(window.AudioContext||window.webkitAudioContext)();pageSound();show('walk');
   const walk=document.querySelector('#walk');requestAnimationFrame(()=>walk.classList.add('playing'));
-  setTimeout(()=>{walk.classList.add('crash');crashSound()},4100);
-  setTimeout(()=>{show('splatScene');crashSound()},4550);
-  setTimeout(()=>{makeFlames();show('cakeScene');pageSound();beginMic()},6900);
+  setTimeout(()=>{document.querySelector('#chapterText').textContent='Then Panna spotted something very interesting…';pageSound()},4300);
+  setTimeout(()=>{document.querySelector('#chapterText').textContent='And suddenly—PULL!';crashSound()},6400);
+  setTimeout(()=>{walk.classList.add('crash');crashSound()},8200);
+  setTimeout(()=>{show('splatScene');crashSound()},8950);
+  setTimeout(()=>{makeFlames();show('cakeScene');pageSound();beginMic()},11650);
 });
 document.querySelector('#blowButton').addEventListener('click',extinguish);
 document.querySelector('#replayButton').addEventListener('click',()=>location.reload());
